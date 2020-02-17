@@ -8,12 +8,24 @@ godoc -http=:[num_port] ex: godoc -http=:6060
 Comand go env
 tras toda a estrutura que o go criou na instalação tipo to GOPATH GOROOT e outras informaçes de instalação
 
+Go build - cria arquivo de build
+ex:	go build file.go
+
+Go dev - executando dev checar erro no codigo
+	go dev file.go
+
+Go run - executa e compila arquivo
+	go run file.go
+    go fun *.go // varios arquivos
+    
+Go clean - limpa file build
+	go clean file.go 
+
 Comand go doc cmd/vet
-O Vet examina o codigo Go e reporta construções suspeitas como procurar Printf 
-Vet examines Go source code and reports suspicious constructs, such as
-Printf calls whose arguments do not align with the format string. Vet uses
-heuristics that do not guarantee all reports are genuine problems, but it
-can find errors not caught by the compilers.
+O Vet examina o código-fonte Go e relata construções suspeitas, como
+Chamadas Printf cujos argumentos não estão alinhados com a sequência de formato. Vet usa
+heurísticas que não garantem todos os relatórios são problemas genuínos, mas
+pode encontrar erros não capturados pelos compiladores.
 
 Vet is normally invoked using the go command by running "go vet":
 
@@ -25,17 +37,9 @@ vets the package in the current directory.
 
 vets the package whose path is provided.
 
-Use "go help packages" to see other ways of specifying which packages to
-vet.
+Use "go help packages" to see other ways of specifying which packages to vet.
 
 ex:  go vet primeiro.go 
-
-comando para compilar 
-go build file.go
-
-comando para compilar e executar
-go run file.go
-go fun *.go // varios arquivos
 
 instalação de pacotes no go
 
