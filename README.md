@@ -1,6 +1,9 @@
 # cursogolang
 Curso da Udemy Golang
 
+Apresento abaixo alguns dos principais comandos da linguagem Golang, com eles é possível verificar erros, biuldar os fonte, consultar as rotas do gopath goroot e outros.
+
+
 Comand godoc
 Ter acesso na sua maquina local ao go document mesmo ofline:
 godoc -http=:[num_port] ex: godoc -http=:6060
