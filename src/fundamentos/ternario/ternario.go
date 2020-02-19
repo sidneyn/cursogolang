@@ -4,7 +4,8 @@ import "fmt"
 
 // Não tem operador ternario
 func obterResultado(nota float64) string {
-	// return nota >= 6  "aprovado" : "Reprovado"
+	// return nota >= 6
+	// "aprovado" : "Reprovado"
 	if nota >= 6 {
 		return "Aprovado"
 	}

@@ -12,6 +12,6 @@ func compras(trab1, trab2 bool) (bool, bool, bool) {
 
 func main() {
 	/**** OPERADORES LOGICOS ****/
-	tv50, tv32, sorvete := compras(false, false)
+	tv50, tv32, sorvete := compras(true, true)
 	fmt.Printf("TV50: %t, Tv32: %v, Sorvete: %t, Saudável: %t \n", tv50, tv32, sorvete, !sorvete)
 }
