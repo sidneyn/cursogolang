@@ -26,4 +26,5 @@ func main() {
 	fmt.Println(tipo("Opa"))
 	fmt.Println(tipo(func() {}))
 	fmt.Println(tipo(time.Now()))
+	fmt.Println(time.Now())
 }
