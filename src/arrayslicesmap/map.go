@@ -35,28 +35,53 @@ func main() {
 	elementos["F"] = "Flúor"
 	elementos["Ne"] = "Neon"
 
+	fmt.Println("------------ MAPA NORMAL ------------")
 	fmt.Println(elementos["Li"])
 	fmt.Println(elementos["Un"])
 
 	nome, ok := elementos["H"]
 	nome2, ok := elementos["Un"]
 
+	fmt.Println("------------ VALIDA ELEMENTO NO MAPA ------------")
 	fmt.Println(nome, ok)
 	fmt.Println(nome2, ok)
 
 	// Criar mapas curtos
-	/*
-		elementos2 := map[string] string {
-			"H" : "Hidrogênio",
-			"He" : "Hélio",
-			"Li" : "litio",
-			"Be" : "Berilio",
-			"B" : "Boro",
-			"C" : "Carbono",
-			"N" : "Nitrogênio",
-			"O" : "Oxigênio",
-			"F" : "Flúor",
-			"Ne" : "Neon",
-		}
-		fmt.Println(elementos)*/
+
+	elementos2 := map[string]string{
+		"H":  "Hidrogênio",
+		"He": "Hélio",
+		"Li": "litio",
+		"Be": "Berilio",
+		"B":  "Boro",
+		"C":  "Carbono",
+		"N":  "Nitrogênio",
+		"O":  "Oxigênio",
+		"F":  "Flúor",
+		"Ne": "Neon",
+	}
+	fmt.Println("------------ MAPA CURTO ------------")
+	fmt.Println(elementos2)
+
+	elementos3 := map[string]map[string]string{
+		"H": map[string]string{
+			"name":  "Hydrogen",
+			"state": "gas",
+		},
+		"He": map[string]string{
+			"nome":  "Hélio",
+			"state": "gas",
+		},
+		"Li": map[string]string{
+			"nome":  "Lithium",
+			"state": "solid",
+		},
+	}
+	fmt.Println("------------ RACH 2 OU MAIS ------------")
+	fmt.Println(elementos3)
+
+	el, ok := elementos3["Li"]
+	{
+		fmt.Println(el["nome"], el["estado"])
+	}
 }
