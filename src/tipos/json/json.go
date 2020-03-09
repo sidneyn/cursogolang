@@ -15,7 +15,7 @@ type produto struct {
 func main() {
 	//struct para json
 	p1 := produto{1, "Notebook", 189.90, []string{"Promoção", "Eletronico"}}
-	p1Json, _ := json.Marshal(p1)
+	p1Json, _ := json.Marshal(p1) // metodo que retorna dois valores
 	fmt.Println(string(p1Json))
 
 	// json para struct

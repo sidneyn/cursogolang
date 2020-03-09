@@ -4,6 +4,7 @@ import "fmt"
 
 func obterValorAprovado(numero int) int {
 	defer fmt.Println("fim!")
+	defer fmt.Println("fim2!")
 	if numero > 500 {
 		fmt.Println("Valor alto...")
 		return 5000

@@ -9,7 +9,7 @@ func main() {
 	fmt.Println(notas)
 
 	notas[0], notas[1], notas[2] = 7.8, 4.3, 9.1
-	// notas[3] = 10
+	//notas[3] = 10
 	fmt.Println(notas)
 
 	total := 0.0

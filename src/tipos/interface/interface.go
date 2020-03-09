@@ -1,9 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type imprimivel interface {
 	toString() string
+}
+
+type corrigivel interface {
+	validaNome(nome string) (string, error)
 }
 
 type pessoa struct {
@@ -15,8 +22,24 @@ type produto struct {
 	nome  string
 	preco float64
 }
+type pessoa1 struct {
+	nome string
+}
 
-// interface são implementados implicitamente
+func (p pessoa1) validaNome(nome string) (string, error) {
+
+	if nome == "" {
+		return string("-1"), errors.New("campo inválido!")
+	}
+	return p.nome, nil
+}
+
+/**
+ * Conceito de Interface são implementados implicitamente no GO de forma que ao criar um tipo interface e dentro dele incluir dentro dele um
+ * metodo (func), atributo (attributes) ou construtor (struct) a funcionalidade poderá ser usada conforme a necessidade.
+ *
+ */
+
 func (p pessoa) toString() string {
 	return p.nome + " " + p.sobrenome
 }
@@ -27,6 +50,9 @@ func (p produto) toString() string {
 
 func imprimir(x imprimivel) {
 	fmt.Println(x.toString())
+}
+func corrigir(y corrigivel) {
+	fmt.Println(y.validaNome("sidney"))
 }
 
 func main() {
@@ -42,5 +68,15 @@ func main() {
 
 	p2 := produto{"Calça Jeans", 179.90}
 	imprimir(p2)
+
+	// Corrigir pedido do cliente
+
+	//	var nome  corrigivel = pessoa1{"Sidney "}
+	var nome2 corrigivel = pessoa1{""}
+	var nomesobrenome corrigivel = pessoa1{""}
+	//fmt.Println(nome)
+	fmt.Println(nome2)
+	fmt.Println(nomesobrenome)
+	//corrigir(nome)
 
 }
