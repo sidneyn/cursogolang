@@ -16,7 +16,7 @@ const (
 
 func SocketClient(ip string, port int) {
 	addr := strings.Join([]string{ip, strconv.Itoa(port)}, ":")
-	conn, err := net.Dial("udp", addr)
+	conn, err := net.Dial("tcp", addr)
 
 	if err != nil {
 		log.Fatalln(err)
@@ -24,15 +24,17 @@ func SocketClient(ip string, port int) {
 		os.Exit(1)
 
 	}
+
 	defer conn.Close()
 
 	conn.Write([]byte(message))
 	conn.Write([]byte(StopCharater))
-	log.Printf("Send: %s message")
+	log.Printf("Send: %s", message)
 
 	buff := make([]byte, 1024)
 	n, _ := conn.Read(buff)
 	log.Printf("Receive: %s", buff[:n])
+
 }
 
 func main() {
