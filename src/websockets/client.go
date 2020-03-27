@@ -20,13 +20,13 @@ func SocketClient(ip string, port int) {
 
 	if err != nil {
 		log.Fatalln(err)
-		fmt.Println("erro...........")
+		fmt.Println("erro...........", err)
 		os.Exit(1)
 
 	}
 
 	defer conn.Close()
-
+	// send menssage
 	conn.Write([]byte(message))
 	conn.Write([]byte(StopCharater))
 	log.Printf("Send: %s", message)
@@ -39,8 +39,10 @@ func SocketClient(ip string, port int) {
 
 func main() {
 	var (
-		ip   = "127.0.0.1"
-		port = 3333
+		ip = "127.0.0.1"
+		//port = 3333
+		port1 = 3334
 	)
-	SocketClient(ip, port)
+	//SocketClient(ip, port)
+	SocketClient(ip, port1)
 }

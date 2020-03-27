@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"io"
 	"log"
 	"net"
@@ -23,6 +24,8 @@ func SocketServer(port int) {
 
 	listen, err := net.Listen("tcp4", ":"+strconv.Itoa(port))
 
+	log.Println("lendo a listen")
+	fmt.Println(listen)
 	if err != nil {
 		log.Fatalf("Socket listen port %d failed, %s", port, err)
 		os.Exit(1)
@@ -44,7 +47,7 @@ func SocketServer(port int) {
 }
 func handler2(conn net.Conn) {
 
-	defer conn.Close() // fecha no final da conexão
+	//	defer conn.Close() // fecha no final da conexão
 
 	var (
 		buf = make([]byte, 1024)
@@ -82,7 +85,12 @@ func isTransportOver(data string) (over bool) {
 }
 
 func main() {
-	port := 3333
-	SocketServer(port)
+	//port := 3333
+	port2 := 3334
+
+	//log.Print("SOCKET 1")
+	//SocketServer(port)
+	log.Print("SOCKET 2")
+	SocketServer(port2)
 
 }
