@@ -14,8 +14,8 @@ import (
 
 // Usuario :)
 type Usuario struct {
-	ID   int    `json:"id"`
-	Nome string `json:"nome"`
+	ID   int `json: "id"`
+	Nome int `json: "nome"`
 }
 
 // UsuarioHandler analisa o request e delega para função adequada
@@ -35,30 +35,31 @@ func UsuarioHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func usuarioPorID(w http.ResponseWriter, r *http.Request, id int) {
-	db, err := sql.Open("mysql", "root:123456@/cursogo")
+	db, err := sql.Open("mssql", "root:671160@/cursogo")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
 
 	var u Usuario
-	db.QueryRow("Select id, nome from usuarios where id = ?", id).Scan(&u.ID, &u.Nome)
+	db.QueryRow("SELECT id, nome FROM usuarios WHERE id = ?", id).Scan(&u.ID, &u.Nome)
 
 	json, _ := json.Marshal(u)
 
 	w.Header().Set("Content-Type", "application/json")
 	fmt.Fprint(w, string(json))
+
 }
 
 func usuarioTodos(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("mysql", "root:123456@/cursogo")
+	db, err := sql.Open("mysql", "root:671160@/cursogo")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
 
-	rows, _ := db.Query("select id, nome from usuarios")
-	defer db.Close()
+	rows, _ := db.Query("SELECT id, nome FROM usuarios")
+	defer rows.Close()
 
 	var usuarios []Usuario
 	for rows.Next() {
@@ -68,7 +69,6 @@ func usuarioTodos(w http.ResponseWriter, r *http.Request) {
 	}
 	json, _ := json.Marshal(usuarios)
 
-	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-type", "application/json")
 	fmt.Fprint(w, string(json))
-
 }
