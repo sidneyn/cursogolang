@@ -3,7 +3,6 @@ package main
 import (
 	"database/sql"
 	"fmt"
-
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -44,13 +43,13 @@ func main() {
 	}
 
 	/*	stmt.Exec("João")
-	/*
-		res, _ := stmt.Exec("Pedro")
+		/*
+			res, _ := stmt.Exec("Pedro")
 
-		id, _ := res.LastInsertId()
-		fmt.Println(id)
+			id, _ := res.LastInsertId()
+			fmt.Println(id)
 
-		linhas, _ := res.RowsAffected()
-		fmt.Println(linhas)
+			linhas, _ := res.RowsAffected()
+			fmt.Println(linhas)
 	*/
 }
