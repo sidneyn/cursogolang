@@ -11,8 +11,8 @@ import (
 func main() {
 
 	// connect to RabbitMQ server
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672") // amqp://guest:guest@localhost:5672/")
-	// conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	//conn, err := amqp.Dial("amqp://guest:guest@broker-dev.betdasorte.com.br:5672") // amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
 	failOnError(err, "Failed to connect to RabbitMQ")
 	// close
 	fmt.Println("Sucessfully Connected To our RabbitMQ Instance")
@@ -43,7 +43,7 @@ func main() {
 			Headers:         nil,
 			ContentType:     "text/plain",
 			ContentEncoding: "",
-			DeliveryMode:    0,
+			DeliveryMode:    2,
 			Priority:        0,
 			CorrelationId:   "",
 			ReplyTo:         "",
