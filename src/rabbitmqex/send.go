@@ -26,14 +26,14 @@ func main() {
 		false,   // durable
 		false,   // delete when unused
 		false,   // exclusive
-		false,   // no-wait
+		true,    // no-wait
 		nil,     // arguments
 	)
 	failOnError(err, "Failed to declare a queue")
 
 	fmt.Println(q)
 
-	body := "Hello Word ONE!"
+	body := "Hello Word BEAUTIFUL!"
 	err = ch.Publish(
 		"",     // exchange
 		q.Name, // routing key

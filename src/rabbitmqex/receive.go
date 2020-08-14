@@ -28,10 +28,10 @@ func main() {
 
 	q, err := ch.QueueDeclare(
 		"hello", // name
-		true,    // durable
+		false,   // durable
 		false,   // delete when unused
 		false,   // exclusive
-		false,   // no-wait
+		true,    // no-wait
 		nil,     // arguments
 	)
 	failOnError2(err, "Failed to declare a queue")
